@@ -275,7 +275,7 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
 }
 .scene{
   position:relative;
-  min-height:var(--scene-height,188vh);
+  min-height:var(--scene-height,232vh);
   isolation:isolate;
   z-index:0;
   --focus:.2;
@@ -304,8 +304,8 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
   --veil-x:50%;
   --veil-y:46%;
 }
-.scene:first-of-type{min-height:145vh}
-#principles{--scene-height:252vh}
+.scene:first-of-type{min-height:168vh}
+#principles{--scene-height:286vh}
 .scene::before,.scene::after{content:none}
 .scene::before{
   inset:-22vh 0;
@@ -326,6 +326,20 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
   mix-blend-mode:screen;
 }
 #hero{--scene-tone-a:0,215,239;--scene-tone-b:213,173,69;--veil-x:72%;--veil-y:28%}
+#hero .scene__inner{padding-top:clamp(3.6rem,7vh,7rem);padding-bottom:clamp(3.2rem,7vh,7rem)}
+@media(min-width:981px) and (max-width:1120px){
+  #hero .scene__inner{grid-template-columns:minmax(0,1fr) minmax(0,15rem)}
+}
+@media(min-width:981px) and (max-height:820px){
+  #hero .scene__inner{padding-bottom:clamp(8rem,17vh,11rem)}
+}
+@media(min-width:981px) and (max-height:700px){
+  #hero .scene__inner{padding-bottom:clamp(8.5rem,18vh,11rem)}
+  .hero-title{font-size:clamp(3rem,9.2vh,6.4rem)}
+  #hero .lead{font-size:clamp(.98rem,2.45vh,1.22rem);line-height:1.5}
+  .hero-pre{margin-bottom:clamp(.55rem,1.6vh,1.1rem)}
+  #hero .scene__label{margin-bottom:clamp(.6rem,1.7vh,1.4rem)}
+}
 #about{--scene-tone-a:110,231,167;--scene-tone-b:0,215,239;--veil-x:22%;--veil-y:66%}
 #projects{--scene-tone-a:213,173,69;--scene-tone-b:229,95,95;--veil-x:76%;--veil-y:42%}
 #method{--scene-tone-a:168,138,231;--scene-tone-b:0,215,239;--veil-x:36%;--veil-y:32%}
@@ -399,7 +413,7 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
 .scene__copy.is-past::before,.scene__copy.is-past::after{opacity:.06}
 .scene__copy.is-past > *{transform:translate3d(-1.4rem,-2rem,0)}
 .scene__space{min-height:1px}
-.scene__label,.metric__label,.project__meta,.principle__meta,.phase__meta,.footer-note{
+.scene__label,.project__meta,.principle__meta,.phase__meta,.footer-note{
   font-family:var(--font-mono);
   text-transform:uppercase;
   font-size:.66rem;
@@ -421,8 +435,8 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
 }
 .hero-title{
   max-width:54rem;
-  font-size:6.4rem;
-  margin-bottom:1.45rem;
+  font-size:clamp(3.2rem,10.5vh,6.4rem);
+  margin-bottom:clamp(.95rem,1.9vh,1.45rem);
 }
 .hero-title em,.scene h2 em{font-family:var(--font-serif);font-weight:300;font-style:italic;color:var(--gold)}
 .scene h2{font-size:3.45rem;margin-bottom:1.25rem}
@@ -435,12 +449,11 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
 #about .scene__inner{grid-template-columns:minmax(26rem,39rem) minmax(0,1fr)}
 #about .scene__copy{max-width:39rem}
 #about h2{font-size:clamp(2.85rem,3.75vw,3.35rem);line-height:.96}
-#about .metrics{margin-top:1.75rem;padding-top:1.05rem}
 .hero-actions,.contact-links{
   display:flex;
   flex-wrap:wrap;
   gap:1rem;
-  margin-top:2.5rem;
+  margin-top:clamp(1.5rem,3.6vh,2.5rem);
 }
 .button{
   position:relative;
@@ -498,26 +511,6 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
 .contact-links .button{border-color:rgba(var(--cyan-rgb),.28);box-shadow:0 0 28px rgba(var(--cyan-rgb),.14),inset 0 0 14px rgba(var(--cyan-rgb),.045)}
 .contact-links .button:hover,.contact-links .button:focus-visible,.contact-links .button.is-hot{
   box-shadow:0 0 0 1px rgba(var(--cyan-rgb),.2),0 0 34px rgba(var(--cyan-rgb),.3),inset 0 0 20px rgba(var(--cyan-rgb),.09);
-}
-
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:1rem;
-  margin-top:2.6rem;
-  padding-top:1.4rem;
-  border-top:1px solid var(--line);
-  transform-style:preserve-3d;
-}
-.metrics span{transform:translateZ(26px);transition:transform .35s var(--ease),opacity .35s var(--ease)}
-.metrics span:nth-child(2){transform:translateZ(46px) translateY(-.2rem)}
-.metrics span:nth-child(3){transform:translateZ(20px)}
-.metric__value{
-  display:block;
-  font-family:var(--font-display);
-  font-size:1.55rem;
-  font-weight:700;
-  color:var(--ink);
 }
 
 .project-stack{
@@ -637,7 +630,7 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
   opacity:.18;
 }
 .project-panel.is-active{
-  max-height:8.8rem;
+  max-height:13rem;
   margin:.12rem 0 .46rem;
   padding:.74rem 1rem .86rem;
   border-color:rgba(var(--cyan-rgb),.18);
@@ -683,7 +676,7 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
   line-height:1.65;
 }
 #projects{
-  min-height:410vh;
+  min-height:452vh;
   --project-enter:0;
   --project-exit:0;
   --project-handoff:0;
@@ -875,7 +868,7 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
 #projects .project-panel{min-height:0}
 #projects .project-panel h3{display:none}
 #projects .project-panel.is-active{
-  max-height:6.4rem;
+  max-height:9.6rem;
   margin:.08rem 0 .28rem;
   padding:.56rem .86rem .62rem;
   border-color:rgba(var(--gold-rgb),.22);
@@ -894,6 +887,12 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
   line-height:1.38;
   color:rgba(236,226,208,.66);
 }
+#projects .project-panel .readout{
+  margin-top:.46rem;
+  font-size:.55rem;
+  gap:.08rem .5rem;
+}
+#projects .project-panel .readout li:not(:last-child)::after{margin-left:.5rem}
 #projects .scene__copy{
   z-index:2;
   isolation:isolate;
@@ -937,6 +936,62 @@ body.is-cursor-ready .cursor-dot,body.is-cursor-ready .cursor-ring{opacity:1}
   margin:.2rem 0 .3rem;
 }
 .phase p,.principle p{font-size:1.02rem}
+
+.readout{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.1rem .6rem;
+  margin:.62rem 0 0;
+  padding:0;
+  list-style:none;
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  font-size:.6rem;
+  line-height:1.5;
+  letter-spacing:.05em;
+  color:rgba(var(--gold-rgb),.72);
+}
+.readout li{white-space:nowrap}
+.readout__u{text-transform:none}
+.readout li:not(:last-child)::after{
+  content:"/";
+  margin-left:.6rem;
+  color:rgba(236,226,208,.2);
+}
+
+#method .scene__inner{grid-template-columns:minmax(22rem,39rem) minmax(0,1fr)}
+#principles .scene__inner{grid-template-columns:minmax(0,1fr) minmax(22rem,39rem)}
+#method .scene__copy,#principles .scene__copy{max-width:39rem}
+#method h2,#principles h2{
+  font-size:clamp(2.3rem,3.2vw,2.9rem);
+  margin-bottom:.9rem;
+  text-wrap:balance;
+}
+#method .scene__copy > p,#principles .scene__copy > p{
+  font-size:clamp(.88rem,1.02vw,1rem);
+  line-height:1.52;
+  max-width:none;
+}
+#method .phase-list,#principles .principle-list{gap:.9rem;margin-top:1.45rem}
+#method .phase h3,#principles .principle h3{
+  font-size:1.06rem;
+  line-height:1.26;
+  margin:.26rem 0 .34rem;
+  text-wrap:balance;
+}
+#method .phase p,#principles .principle p{
+  font-size:.86rem;
+  line-height:1.52;
+  max-width:none;
+  color:rgba(236,226,208,.66);
+}
+#method .phase .readout{
+  margin-top:.5rem;
+  padding-top:.46rem;
+  border-top:1px solid rgba(236,226,208,.07);
+  font-size:.57rem;
+}
 .contact-links{justify-content:flex-start}
 .footer-note{margin-top:3.5rem}
 
@@ -1413,7 +1468,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
       linear-gradient(to bottom,rgba(4,6,11,.06),transparent 20%,transparent 74%,rgba(4,6,11,.58)),
       radial-gradient(circle at 50% 52%,transparent 0 56%,rgba(0,0,0,.32) 100%);
   }
-  #projects{min-height:430svh}
+  #projects{min-height:470svh}
   #projects .scene__copy{max-width:none;transform:none;opacity:1;filter:none}
   #projects .scene__inner,#projects.is-project-approach .scene__inner,#projects.is-project-pinned .scene__inner,#projects.is-project-tail .scene__inner,#projects.is-project-after .scene__inner{
     left:0;
@@ -1716,9 +1771,10 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     text-wrap:balance;
   }
   #about .scene__inner{grid-template-columns:1fr}
+  #method .scene__inner,#principles .scene__inner{grid-template-columns:1fr}
+  #method .scene__copy,#principles .scene__copy{max-width:100%}
   #about .scene__copy{max-width:none}
   #about h2{font-size:clamp(2.1rem,8.6vw,3.1rem);line-height:1.02}
-  #about .metrics{margin-bottom:clamp(2.25rem,8svh,4rem)}
   #projects h2{font-size:clamp(2.25rem,10.5vw,3.7rem);line-height:.96}
   #projects .scene__copy > p{font-size:1rem;line-height:1.62}
   #projects .scene__inner,
@@ -1751,12 +1807,6 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     backdrop-filter:none;
     -webkit-backdrop-filter:none;
   }
-  .metrics{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:.7rem;
-    margin-top:2rem;
-  }
-  .metric__value{font-size:1.22rem}
   .phase-list,.principle-list{gap:.95rem;margin-top:1.65rem}
   .phase,.principle,
   .phase:nth-child(2),.principle:nth-child(2),
@@ -1869,6 +1919,15 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   .scene h2{font-size:clamp(1.86rem,9.8vw,2.32rem);line-height:1.06}
   #about h2{font-size:clamp(1.86rem,9.8vw,2.32rem);line-height:1.06}
   #projects h2{font-size:clamp(1.92rem,10.2vw,2.35rem);line-height:1.02;margin-bottom:.82rem}
+  #method h2,#principles h2{font-size:clamp(1.86rem,9.8vw,2.32rem);line-height:1.06;margin-bottom:.82rem}
+  #method .scene__copy > p,#principles .scene__copy > p{font-size:.96rem;line-height:1.66}
+  #method .phase-list,#principles .principle-list{gap:1.15rem;margin-top:1.5rem}
+  #method .phase h3,#principles .principle h3{font-size:1.06rem;line-height:1.28}
+  #method .phase p,#principles .principle p{font-size:.92rem;line-height:1.62}
+  .readout{font-size:.58rem;gap:.1rem .5rem}
+  #projects .project-panel .readout{font-size:.62rem;gap:.12rem .55rem}
+  #method .phase .readout{font-size:.6rem}
+  .readout li:not(:last-child)::after{margin-left:.5rem}
   #projects .scene__inner,
   #projects.is-project-approach .scene__inner,
   #projects.is-project-pinned .scene__inner,
@@ -1881,7 +1940,6 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   .scene__copy::before,.scene__copy::after{inset:-.85rem -.65rem}
   .scene__copy::after{display:none}
   .button{width:100%}
-  .metrics{grid-template-columns:1fr;gap:.85rem}
   #projects .scene__copy{width:100%;min-width:0}
   #projects .project-stack{
     width:calc(100vw - 2.4rem);
@@ -1899,7 +1957,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   #projects .project{grid-template-columns:1.8rem minmax(0,1fr)}
   #projects .project__meta,#projects .project__open{display:none}
   #projects .project-panel{padding:1rem}
-  #projects .project-panel.is-active{max-height:16rem}
+  #projects .project-panel.is-active{max-height:23rem}
   .click-hint{bottom:calc(5.8rem + var(--safe-bottom))}
 }
 @media(max-width:380px){
@@ -1989,7 +2047,6 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   }
   .scene__copy > *,
   .scene__copy.is-past > *,
-  .metrics span,
   .hero-kinetic__line{
     transform:none;
     opacity:1;
@@ -2145,7 +2202,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   <a href="#about">About</a>
   <a href="#projects">Work</a>
   <a href="#method">Papers</a>
-  <a href="#principles">Principles</a>
+  <a href="#principles">Signals</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -2201,11 +2258,6 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
         <h2 data-scramble>Where uncertainty is high, <em>structure</em> becomes the advantage.</h2>
         <p><strong>I am drawn to problems where the data is noisy, the structure is hidden, and the decision still matters.</strong> Markets are the cleanest version of that challenge: uncertainty, incentives, timing, feedback, and consequences compressed into a live system.</p>
         <p>My default mode is to make ideas falsifiable: turn the question into data, the data into a model, the model into a test, and the test into a decision rule that can be challenged.</p>
-        <div class="metrics" aria-label="Research traits">
-          <span><b class="metric__value">Models</b><span class="metric__label">Robust</span></span>
-          <span><b class="metric__value">Signals</b><span class="metric__label">Tradable</span></span>
-          <span><b class="metric__value">Systems</b><span class="metric__label">Low-latency</span></span>
-        </div>
       </div>
       <div class="scene__space"></div>
     </div>
@@ -2217,56 +2269,71 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
       <div class="scene__copy">
         <div class="scene__label">03 / Selected Work</div>
         <h2 data-scramble>Quant systems built as <em>instruments.</em></h2>
+        <p>Each system is built around a market mechanism and an empirical question, then instrumented for deterministic replay, controlled experiments, implementation realism, and measurable failure modes.</p>
         <div class="project-stack">
           <button class="project is-active" type="button" aria-pressed="true" aria-controls="projectPanel0" data-project="0">
             <span class="project__index">001</span>
-            <span class="project__title">Queue-Aware Market Making Simulator</span>
+            <span class="project__title">Queue-Aware Market-Making &amp; LOB Replay Engine</span>
             <span class="project__meta">Microstructure</span>
           </button>
           <div class="project-panel is-active" id="projectPanel0" data-project-detail="0" aria-live="polite" aria-hidden="false">
             <span class="project-panel__meta">001 / Microstructure</span>
-            <h3>Queue-Aware Market Making Simulator</h3>
-            <p>A tick-level exchange simulator for testing quoting policies against queue position, adverse selection, inventory risk, fees, latency, and realistic fill dynamics.</p>
+            <h3>Queue-Aware Market-Making &amp; LOB Replay Engine</h3>
+            <p>An event-level market simulator that reconstructs queue state and models passive fills under price-time priority, latency, cancellations, adverse selection, inventory pressure, fees, and stochastic order flow. Deterministic replay supports counterfactual quoting experiments against identical market trajectories.</p>
+            <ul class="readout" aria-label="System readout">
+              <li>412M book events</li>
+              <li>2.4M ev·s⁻¹ replay</li>
+              <li>p99 1.8 <span class="readout__u">µ</span>s</li>
+              <li>23 symbols × 180 sessions</li>
+            </ul>
           </div>
           <button class="project" type="button" aria-pressed="false" aria-controls="projectPanel1" data-project="1">
             <span class="project__index">002</span>
-            <span class="project__title">Cross-Asset Statistical Arbitrage Engine</span>
-            <span class="project__meta">Stat arb</span>
+            <span class="project__title">Cross-Asset Residual &amp; Lead-Lag Research Engine</span>
+            <span class="project__meta">Statistical arbitrage</span>
           </button>
           <div class="project-panel" id="projectPanel1" data-project-detail="1" aria-live="polite" aria-hidden="true">
-            <span class="project-panel__meta">002 / Stat arb</span>
-            <h3>Cross-Asset Statistical Arbitrage Engine</h3>
-            <p>A research stack for discovering lead-lag, cointegration, and residual signals across liquid assets, with walk-forward validation and full transaction-cost realism.</p>
+            <span class="project-panel__meta">002 / Statistical arbitrage</span>
+            <h3>Cross-Asset Residual &amp; Lead-Lag Research Engine</h3>
+            <p>A point-in-time research stack for extracting cross-asset structure through factor residualisation, cointegration, distributed lead-lag effects, and horizon-specific signal combination. Purged walk-forward evaluation incorporates turnover, spread, impact, and regime-conditioned stability rather than evaluating raw prediction in isolation.</p>
+            <ul class="readout" aria-label="System readout">
+              <li>620 instruments</li>
+              <li>11y walk-forward</li>
+              <li>OOS rank IC 0.031</li>
+              <li>IC &gt; 0 in 29 of 36 folds</li>
+            </ul>
           </div>
           <button class="project" type="button" aria-pressed="false" aria-controls="projectPanel2" data-project="2">
             <span class="project__index">003</span>
-            <span class="project__title">Volatility Surface Arbitrage Lab</span>
+            <span class="project__title">Arbitrage-Constrained Volatility Surface &amp; Event-Risk Lab</span>
             <span class="project__meta">Options</span>
           </button>
           <div class="project-panel" id="projectPanel2" data-project-detail="2" aria-live="polite" aria-hidden="true">
             <span class="project-panel__meta">003 / Options</span>
-            <h3>Volatility Surface Arbitrage Lab</h3>
-            <p>An options research system that calibrates arbitrage-free volatility surfaces, prices Greeks, and hunts mispricings across skew, term structure, and event volatility.</p>
+            <h3>Arbitrage-Constrained Volatility Surface &amp; Event-Risk Lab</h3>
+            <p>A derivatives research system for fitting constrained volatility surfaces, decomposing skew and term-structure dynamics, and identifying event-driven repricing across strikes and maturities. Mispricing is evaluated through Greeks-aware, delta-hedged simulations with transaction costs and explicit static-arbitrage checks.</p>
+            <ul class="readout" aria-label="System readout">
+              <li>86.4K surfaces</li>
+              <li>48M option quotes</li>
+              <li>RMSE 0.52 vol pts</li>
+              <li>arb violations 3.8% → 0</li>
+            </ul>
           </div>
           <button class="project" type="button" aria-pressed="false" aria-controls="projectPanel3" data-project="3">
             <span class="project__index">004</span>
-            <span class="project__title">Optimal Execution Impact Engine</span>
+            <span class="project__title">Transient-Impact Optimal Execution Engine</span>
             <span class="project__meta">Execution</span>
           </button>
           <div class="project-panel" id="projectPanel3" data-project-detail="3" aria-live="polite" aria-hidden="true">
             <span class="project-panel__meta">004 / Execution</span>
-            <h3>Optimal Execution Impact Engine</h3>
-            <p>A backtesting and control framework for sizing child orders under spread, market impact, liquidity uncertainty, urgency, and post-trade slippage attribution.</p>
-          </div>
-          <button class="project" type="button" aria-pressed="false" aria-controls="projectPanel4" data-project="4">
-            <span class="project__index">005</span>
-            <span class="project__title">Event-Driven Alpha Research System</span>
-            <span class="project__meta">Event alpha</span>
-          </button>
-          <div class="project-panel" id="projectPanel4" data-project-detail="4" aria-live="polite" aria-hidden="true">
-            <span class="project-panel__meta">005 / Event alpha</span>
-            <h3>Event-Driven Alpha Research System</h3>
-            <p>A timestamp-precise pipeline for measuring how macro releases, earnings, and news shocks transmit through price, liquidity, volatility, and cross-asset hedges.</p>
+            <h3>Transient-Impact Optimal Execution Engine</h3>
+            <p>A state-dependent execution framework that estimates spread, temporary and persistent impact, liquidity recovery, fill uncertainty, and urgency before solving for adaptive child-order schedules. Policies are benchmarked against TWAP, VWAP, and POV under matched market trajectories.</p>
+            <ul class="readout" aria-label="System readout">
+              <li>41.2K parent orders</li>
+              <li>IS −2.4 bps vs TWAP</li>
+              <li>−1.1 bps vs VWAP</li>
+              <li>p95 tail −5.8 bps</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -2277,31 +2344,31 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     <div class="scene__inner">
       <div class="scene__copy">
         <div class="scene__label">04 / Research Papers</div>
-        <h2 data-scramble>Market questions written as <em>papers.</em></h2>
-        <p>Paper-style research built around falsifiable claims, market realism, careful validation, and a clear path from statistical evidence to tradable decision.</p>
+        <h2 data-scramble>Market questions resolved through <em>evidence.</em></h2>
+        <p>Working papers built around explicit market mechanisms, identifiable estimands, point-in-time data, out-of-sample validation, and implementation-aware economics. Each study asks not simply whether an effect exists, but what generates it, where it breaks, and whether its information survives translation into a trade.</p>
         <div class="phase-list">
-          <div class="phase"><span class="phase__meta">Paper 01 / Microstructure</span><h3>Queue Priority, Adverse Selection, and the True Cost of a Fill</h3><p>A tick-level study estimating fill probability and expected adverse selection from order-book state, latency, fees, and queue position.</p></div>
-          <div class="phase"><span class="phase__meta">Paper 02 / Statistical learning</span><h3>Learning Stable Cross-Asset Signals Under Regime Drift</h3><p>A walk-forward study of lead-lag, residual, and macro-sensitive features with purged validation, turnover controls, and live-like costs.</p></div>
-          <div class="phase"><span class="phase__meta">Paper 03 / Options</span><h3>Arbitrage-Free Volatility Surface Forecasting Around Scheduled Events</h3><p>A volatility paper modelling skew and term-structure dislocations before earnings and macro releases, with constrained calibration and hedged P&amp;L attribution.</p></div>
-          <div class="phase"><span class="phase__meta">Paper 04 / Execution</span><h3>Optimal Execution Under Transient Impact and Liquidity Uncertainty</h3><p>A control study comparing static and adaptive execution policies under spread, impact decay, fill risk, urgency, and post-trade slippage.</p></div>
+          <div class="phase"><span class="phase__meta">Paper 01 / Market microstructure</span><h3>Queue Position as a State Variable: Fill Hazard, Toxicity, and the Economics of Passive Liquidity</h3><p>A competing-risk study of passive execution that estimates fill and cancellation hazards conditional on queue-ahead volume, order-flow imbalance, microprice, spread state, cancellations, and latency. Post-fill mark-outs decompose realised spread capture from adverse selection to estimate when apparently favourable fills are economically toxic.</p><ul class="readout" aria-label="Empirical readout"><li>2.9M order lifetimes</li><li>fill C-index 0.74</li><li>10 s mark-out −0.42 bps</li><li>net passive edge +0.18 bps</li></ul></div>
+          <div class="phase"><span class="phase__meta">Paper 02 / Statistical learning</span><h3>Conditional Alpha Under Regime Drift: Cross-Asset Residuals, Lead-Lag Structure, and Signal Half-Life</h3><p>A walk-forward study of whether cross-asset predictability survives factor neutralisation, changing volatility and liquidity states, and repeated model selection. Horizon-specific information coefficients, decay curves, turnover-adjusted returns, and orthogonalised feature contributions distinguish persistent information from transient correlation.</p><ul class="readout" aria-label="Empirical readout"><li>1.7M name-days</li><li>Δ IC +0.011 after neutralisation</li><li>half-life 2.6 sessions</li><li>net IR 0.94</li></ul></div>
+          <div class="phase"><span class="phase__meta">Paper 03 / Derivatives</span><h3>Event-Time Volatility Surfaces: Arbitrage-Free Repricing Around Scheduled Information</h3><p>A study of how scheduled information is embedded into implied volatility before and after events. Constrained surface calibration separates level, skew, curvature, and term-structure effects, while delta- and vega-aware attribution tests whether observed dislocations survive hedging error, spread, and surface re-marking.</p><ul class="readout" aria-label="Empirical readout"><li>18.6K events</li><li>74K event surfaces</li><li>RMSE 0.61 vol pts</li><li>ATM crush −6.8 vol pts</li></ul></div>
+          <div class="phase"><span class="phase__meta">Paper 04 / Execution</span><h3>Execution as a Control Problem: Transient Impact, Fill Risk, and Adaptive Scheduling</h3><p>A state-space study of execution under stochastic liquidity and decaying market impact. Adaptive policies condition participation on spread, depth, volatility, remaining inventory, and impact recovery, then compete against TWAP, VWAP, and POV under identical order and market paths.</p><ul class="readout" aria-label="Empirical readout"><li>41.2K matched paths</li><li>impact half-life 4.7 min</li><li>IS −2.4 bps vs TWAP</li><li>−0.6 bps vs POV</li></ul></div>
         </div>
       </div>
       <div class="scene__space"></div>
     </div>
   </section>
 
-  <section class="scene" id="principles" data-scene="4" data-mode="Research Protocol">
+  <section class="scene" id="principles" data-scene="4" data-mode="Signal decomposition">
     <div class="scene__inner">
       <div class="scene__space"></div>
       <div class="scene__copy">
-        <div class="scene__label">05 / Research Principles</div>
-        <h2 data-scramble>Research that survives <em>markets.</em></h2>
-        <p>I treat a signal as an investment case, not a chart pattern: a precise hypothesis, a clean experiment, a known capacity limit, and a measured path from prediction to execution.</p>
+        <div class="scene__label">05 / Signal Anatomy</div>
+        <h2 data-scramble>Decomposing <em>edge.</em></h2>
+        <p>I treat alpha as a conditional system rather than a standalone prediction. Identification, state dependence, information decay, interaction with existing signals, execution sensitivity, and nonlinear capacity jointly determine how much statistical information can ultimately be converted into risk-adjusted P&amp;L.</p>
         <div class="principle-list">
-          <div class="principle"><span class="principle__meta">Principle 01 / Hypothesis</span><h3>Write the trade before the test</h3><p>Define the market mechanism, forecast horizon, universe, benchmark, failure condition, and economic reason the edge should exist before looking for evidence.</p></div>
-          <div class="principle"><span class="principle__meta">Principle 02 / Validation</span><h3>Make the backtest difficult to pass</h3><p>Use clean time alignment, purged splits, out-of-sample periods, simple baselines, and stress by regime, liquidity, turnover, and capacity.</p></div>
-          <div class="principle"><span class="principle__meta">Principle 03 / Execution</span><h3>Translate signal into implementable P&amp;L</h3><p>Measure spread, fees, queue priority, borrow, latency, partial fills, market impact, and risk sizing so statistical edge is judged as tradeable economics.</p></div>
-          <div class="principle"><span class="principle__meta">Principle 04 / Ownership</span><h3>Know when to scale, retrain, or retire</h3><p>A model is not finished at research approval. It needs monitoring, drawdown attribution, drift checks, risk limits, and explicit criteria for reducing or removing risk.</p></div>
+          <div class="principle"><span class="principle__meta">01 / Identification</span><h3>Estimate incremental information, not raw association</h3><p>Residualise known exposures, test nested specifications, perturb event timing, reverse lead-lag relationships, and use placebo features to distinguish genuinely incremental information from factor leakage, autocorrelation, selection effects, and accidental dependence.</p></div>
+          <div class="principle"><span class="principle__meta">02 / Conditionality</span><h3>Map the state space in which the edge exists</h3><p>Estimate response surfaces across volatility, liquidity, dispersion, order-flow state, market session, positioning, and cross-sectional breadth. The relevant object is often a conditional distribution of expected return rather than a stationary unconditional coefficient.</p></div>
+          <div class="principle"><span class="principle__meta">03 / Information decay</span><h3>Measure when information arrives, overlaps, and disappears</h3><p>Construct horizon-specific IC and P&amp;L decay curves, estimate forecast half-life, trace cross-asset propagation, and orthogonalise correlated signals to measure marginal information. A strong feature can still be useless if its information arrives too late or duplicates an existing predictor.</p></div>
+          <div class="principle"><span class="principle__meta">04 / Capacity frontier</span><h3>Solve for the boundary between forecast and scalable P&amp;L</h3><p>Map expected alpha through queue priority, fill probability, spread, borrow, turnover, nonlinear impact, inventory constraints, hedging costs, and risk concentration. The useful capacity of a strategy ends where marginal implementation cost consumes marginal informational advantage.</p></div>
         </div>
       </div>
     </div>
@@ -2315,6 +2382,8 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
         <p>I am drawn to teams working on problems where markets, statistical structure, risk, and systems meet under pressure, and where research has to survive real data, real constraints, and real consequences.</p>
         <div class="contact-links">
           <a class="button" href="mailto:anannye.naik@gmail.com">Email</a>
+          <a class="button button--ghost" href="https://journal.anannye.com/">Journal</a>
+          <a class="button button--ghost" href="https://poker.anannye.com/">Poker</a>
           <a class="button button--ghost" href="https://linkedin.com/in/anannye/">LinkedIn</a>
         </div>
         <div class="footer-note">Anannye Naik / 2026</div>
@@ -2378,6 +2447,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   };
   const ease = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   const dist = (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1);
+  const SCENE_ACTIVATE_LINE = .34;
   const PROJECT_SELECT_START = .08;
   const PROJECT_SELECT_SPAN = .48;
   const PROJECT_PIN_END = .64;
@@ -2505,7 +2575,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     "02 / About",
     "03 / Selected Work",
     "04 / Research Papers",
-    "05 / Principles",
+    "05 / Signal Anatomy",
     "06 / Contact"
   ];
   const fallbackModes = [
@@ -2513,7 +2583,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     "Structure Atlas",
     "Instrument Array",
     "Hypothesis Codex",
-    "Research Protocol",
+    "Signal decomposition",
     "Signal Uplink"
   ];
   const modes = scenes.map((scene, index) => scene.dataset.mode || fallbackModes[index] || fallbackModes[0]);
@@ -2531,7 +2601,8 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   ];
 
   const actNumbers = ["ACT 01 / 06", "ACT 02 / 06", "ACT 03 / 06", "ACT 04 / 06", "ACT 05 / 06", "ACT 06 / 06"];
-  const actTitles = modes.map(titleMode);
+  const actTitleOverrides = { 4: "Signal <em>anatomy</em>" };
+  const actTitles = modes.map((mode, index) => actTitleOverrides[index] || titleMode(mode));
   const syncHudContent = (idx = state.activeScene || 0) => {
     const safeIdx = clamp(idx, 0, Math.max(scenes.length - 1, 0));
     if (hudScene) hudScene.textContent = labels[safeIdx] || labels[0];
@@ -2730,7 +2801,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     "spread.sweep // OK",
     "<b>EDGE</b> // observed → tested → sized",
     "queue.aware TRUE",
-    "baseline.first // principle 02",
+    "decay.halflife 2.6d // signal 03",
     "MODEL.ENS // 5/5 LOCKED"
   ];
   const scrambleChars = "▘▚▞▌▐░▒▓01XΣΔΞΨΩΦ#@%&▲◆◇◈⊙⊛⊕⊖⊘⊜?!//+-";
@@ -4674,11 +4745,13 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
       if (!activeButton || !activePanel || !activePanel.classList.contains("is-active")) return;
       const inner = document.querySelector("#projects .scene__inner");
       const title = document.querySelector("#projects h2");
+      const lede = document.querySelector("#projects .scene__copy > p");
       const innerRect = inner ? inner.getBoundingClientRect() : { top: 0, bottom: state.h };
       const panelRect = activePanel.getBoundingClientRect();
       const buttonRect = activeButton.getBoundingClientRect();
       const stackRect = projectStack.getBoundingClientRect();
       const titleRect = title ? title.getBoundingClientRect() : null;
+      const ledeRect = lede ? lede.getBoundingClientRect() : null;
       const innerInViewport = innerRect.bottom > 0 && innerRect.top < state.h;
       const currentClearance = Number.parseFloat(getComputedStyle(projectStack).getPropertyValue("--project-title-clearance")) || 0;
       const requiredClearance = titleRect ? Math.max(0, titleRect.bottom + 34 - (stackRect.top - currentClearance)) : 0;
@@ -4688,7 +4761,8 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
       const topLimit = innerInViewport ? Math.max(18, innerRect.top + 18) : innerRect.top + 18;
       const currentLift = Number.parseFloat(getComputedStyle(projectStack).getPropertyValue("--project-stack-lift")) || 0;
       const naturalStackTop = stackRect.top - currentLift;
-      const minimumStackTop = Math.max(topLimit, naturalStackTop - 44);
+      const copyBottom = ledeRect ? ledeRect.bottom : (titleRect ? titleRect.bottom : -Infinity);
+      const minimumStackTop = Math.max(topLimit, naturalStackTop - 44, copyBottom + 12);
       let targetLift = currentLift;
       const overflow = panelRect.bottom - bottomLimit;
       if (overflow > 0) targetLift -= overflow;
@@ -4792,8 +4866,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
         }, userAction ? 760 : 190);
       }
     });
-    if (userAction) scheduleProjectStackFit();
-    else fitActiveProjectPanel();
+    scheduleProjectStackFit();
     if (userAction) jumpToProjectFrame(safeIndex, "auto");
     if (state.audioEngine && (changed || userAction)) state.audioEngine.setProject(safeIndex, userAction);
     if (mobileAutoSwitch && projectStack) {
@@ -4835,7 +4908,6 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     rail.style.height = (state.progress * 100) + "%";
 
     let closest = 0;
-    let best = Infinity;
     scenes.forEach((scene, index) => {
       const metric = sceneMetrics[index] || { top: scene.offsetTop, height: scene.offsetHeight };
       const top = metric.top - state.visualScroll;
@@ -4898,11 +4970,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
         }
       }
       if (copy) copy.classList.toggle("is-past", !state.isCompact && bottom < state.h * .32);
-      const distance = Math.abs(top - state.h * .24);
-      if (distance < best) {
-        best = distance;
-        closest = index;
-      }
+      if (top <= state.h * SCENE_ACTIVATE_LINE) closest = index;
     });
 
     const projectMetric = sceneMetrics[2];
