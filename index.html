@@ -2151,7 +2151,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   <a href="#about">About</a>
   <a href="#projects">Work</a>
   <a href="#method">Papers</a>
-  <a href="#principles">Signals</a>
+  <a href="#principles">Frontiers</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -2306,18 +2306,18 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     </div>
   </section>
 
-  <section class="scene" id="principles" data-scene="4" data-mode="Signal decomposition">
+  <section class="scene" id="principles" data-scene="4" data-mode="Open questions">
     <div class="scene__inner">
       <div class="scene__space"></div>
       <div class="scene__copy">
-        <div class="scene__label">05 / Signal Anatomy</div>
-        <h2 data-scramble>Decomposing <em>edge.</em></h2>
-        <p>I treat alpha as a conditional system rather than a standalone prediction. Identification, state dependence, information decay, interaction with existing signals, execution sensitivity, and nonlinear capacity jointly determine how much statistical information can ultimately be converted into risk-adjusted P&amp;L.</p>
+        <div class="scene__label">05 / Research Frontiers</div>
+        <h2 data-scramble>Questions worth <em>solving.</em></h2>
+        <p>A set of market questions I keep returning to because the answer depends on mechanism, state, horizon, and implementation rather than a single backtest statistic.</p>
         <div class="principle-list">
-          <div class="principle"><span class="principle__meta">01 / Identification</span><h3>Estimate incremental information, not raw association</h3><p>Residualise known exposures, test nested specifications, perturb event timing, reverse lead-lag relationships, and use placebo features to distinguish genuinely incremental information from factor leakage, autocorrelation, selection effects, and accidental dependence.</p></div>
-          <div class="principle"><span class="principle__meta">02 / Conditionality</span><h3>Map the state space in which the edge exists</h3><p>Estimate response surfaces across volatility, liquidity, dispersion, order-flow state, market session, positioning, and cross-sectional breadth. The relevant object is often a conditional distribution of expected return rather than a stationary unconditional coefficient.</p></div>
-          <div class="principle"><span class="principle__meta">03 / Information decay</span><h3>Measure when information arrives, overlaps, and disappears</h3><p>Construct horizon-specific IC and P&amp;L decay curves, estimate forecast half-life, trace cross-asset propagation, and orthogonalise correlated signals to measure marginal information. A strong feature can still be useless if its information arrives too late or duplicates an existing predictor.</p></div>
-          <div class="principle"><span class="principle__meta">04 / Capacity frontier</span><h3>Solve for the boundary between forecast and scalable P&amp;L</h3><p>Map expected alpha through queue priority, fill probability, spread, borrow, turnover, nonlinear impact, inventory constraints, hedging costs, and risk concentration. The useful capacity of a strategy ends where marginal implementation cost consumes marginal informational advantage.</p></div>
+          <div class="principle"><span class="principle__meta">01 / Microstructure</span><h3>When does latent liquidity dominate the visible book?</h3><p>How much of short-horizon price formation can be explained by queue dynamics, cancellation behaviour, replenishment, and hidden liquidity rather than displayed depth alone?</p></div>
+          <div class="principle"><span class="principle__meta">02 / Cross-Asset Structure</span><h3>When is lead-lag genuine information transmission rather than shared exposure?</h3><p>Can delayed cross-asset responses be separated from common factors, asynchronous price discovery, stale prices, and correlated order flow strongly enough to produce incremental predictive information?</p></div>
+          <div class="principle"><span class="principle__meta">03 / Volatility</span><h3>Does the volatility surface reveal information before spot incorporates it?</h3><p>Do changes in skew, curvature, and term structure contain forward-looking information distinct from realised volatility, spot moves, positioning, and scheduled-event risk?</p></div>
+          <div class="principle"><span class="principle__meta">04 / Execution</span><h3>When does optimal execution require forecasting the decay of alpha itself?</h3><p>How should execution adapt when market impact, liquidity recovery, fill probability, and signal half-life evolve jointly rather than independently?</p></div>
         </div>
       </div>
     </div>
@@ -2524,7 +2524,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     "02 / About",
     "03 / Selected Work",
     "04 / Research Papers",
-    "05 / Signal Anatomy",
+    "05 / Research Frontiers",
     "06 / Contact"
   ];
   const fallbackModes = [
@@ -2532,7 +2532,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
     "Structure Atlas",
     "Instrument Array",
     "Hypothesis Codex",
-    "Signal decomposition",
+    "Open questions",
     "Signal Uplink"
   ];
   const modes = scenes.map((scene, index) => scene.dataset.mode || fallbackModes[index] || fallbackModes[0]);
@@ -2550,7 +2550,7 @@ body.is-cursor-ready a,body.is-cursor-ready button,body.is-cursor-ready .project
   ];
 
   const actNumbers = ["ACT 01 / 06", "ACT 02 / 06", "ACT 03 / 06", "ACT 04 / 06", "ACT 05 / 06", "ACT 06 / 06"];
-  const actTitleOverrides = { 4: "Signal <em>anatomy</em>" };
+  const actTitleOverrides = { 4: "Research <em>Frontiers</em>" };
   const actTitles = modes.map((mode, index) => actTitleOverrides[index] || titleMode(mode));
   const syncHudContent = (idx = state.activeScene || 0) => {
     const safeIdx = clamp(idx, 0, Math.max(scenes.length - 1, 0));
